@@ -67,8 +67,6 @@ const updatePortalData = (portalName) => {
   });
 };
 
-const portalName = computed(() => portalData.value ? portalData.value.name : '');
-
 const portalRegionString = computed(() => {
   if(portalData.value) {
     if(portalData.value.minCorner == null)
@@ -87,9 +85,7 @@ const portalRegionString = computed(() => {
   }
 });
 
-const hasAction = (actionName) => {
-  portalData.value.actions.some((action) => action['=='] == actionName);
-}
+const hasAction = (actionName) => portalData.value.actions.some((action) => action['=='] == actionName);
 const getAction = (actionName) => portalData.value.actions.find((action) => action['=='] == actionName);
 
 const removeFromList = (list, index, disabler) => {
@@ -102,11 +98,11 @@ const removeCommand =       (index) => removeFromList(procPortalData.value.comma
 const removeSuCommand =     (index) => removeFromList(procPortalData.value.suCommands,     index, () => { procPortalData.value.suCommandsActive = false; });
 const removePotionEffect =  (index) => removeFromList(procPortalData.value.potionEffects,  index, () => { procPortalData.value.potionEffectsActive = false; });
 const removeForwardPortal = (index) => removeFromList(procPortalData.value.forwardPortals, index, () => { procPortalData.value.forwardPortalsActive = false; });
-const addSound = () => procPortalData.value.sounds.push({ sound: '', pitch: '1.0' });
-const addCommand = () => procPortalData.value.commands.push('');
-const addSuCommand = () => procPortalData.value.suCommands.push('');
-const addPotionEffect = () => procPortalData.value.potionEffects.push({ type: '', amplifier: '1', duration: '10', particles: false });
-const addForwardPortal = () => procPortalData.value.forwardPortals.push({ name: '', weight: '0' }); 
+const addSound =            () => procPortalData.value.sounds.push({ sound: '', pitch: '1.0' });
+const addCommand =          () => procPortalData.value.commands.push('');
+const addSuCommand =        () => procPortalData.value.suCommands.push('');
+const addPotionEffect =     () => procPortalData.value.potionEffects.push({ type: '', amplifier: '1', duration: '10', particles: false });
+const addForwardPortal =    () => procPortalData.value.forwardPortals.push({ name: '', weight: '0' }); 
 
 watch(() => procPortalData.value.commandsActive, (status) => {
   if(! status) return;

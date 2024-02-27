@@ -1,15 +1,4 @@
-export function getCvcgURL() {
-  return 'https://www.example.org/example';
-}
-
-export function getPortalManualURL() {
-  return 'https://www.example.org/example';
-}
-
-export function getPluginDirectoryURL() {
-  return 'https://www.example.org/example';
-}
-
-export function getBasePath() {
-  return '/example/';
-}
+export const getCvcgURL = () => 'https://www.example.org/example';
+export const getPortalManualURL = () => 'https://www.example.org/example';
+export const getPortalPluginDirectoryURL = () => 'https://www.example.org/example';
+export const getBasePath = () => '/example/';
